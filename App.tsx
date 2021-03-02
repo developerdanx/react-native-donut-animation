@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import CountdownDonut from './src/components/CountdownDonut';
 import Donut from './src/components/Donut';
 
 const data = [
@@ -18,12 +19,6 @@ const data = [
     percentage: 92,
     color: 'blue',
     max: 100,
-  },
-  {
-    percentage: 240,
-    color: 'lime',
-    max: 500,
-    radius: 150,
   },
 ];
 
@@ -46,11 +41,18 @@ export default function App() {
               percentage={property.percentage}
               color={property.color}
               max={property.max}
-              radius={property.radius}
               delay={1000}
             />
           );
         })}
+        <CountdownDonut
+          percentage={10}
+          color={'lime'}
+          max={10}
+          radius={150}
+          delay={0}
+          duration={10000}
+        />
       </View>
     </View>
   );
