@@ -1,11 +1,18 @@
 import React, { MutableRefObject } from 'react';
-import { StyleSheet, Text, View, TextInput, Animated } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Animated,
+  Easing,
+} from 'react-native';
 import Svg, { G, Circle } from 'react-native-svg';
 
 interface CountdownDonutProps {
   percentage: number;
   radius: number;
-  strokeWidth: number;
+  strokeWidth?: number;
   duration: number;
   color: string;
   delay: number;
@@ -38,6 +45,7 @@ const CountdownDonut: React.FC<CountdownDonutProps> = ({
       toValue,
       duration,
       delay,
+      easing: Easing.linear,
       useNativeDriver: true,
     }).start(() => {
       animation(toValue === percentage ? 0 : percentage);
